@@ -3,15 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerJump : PlayerMovement
+public class PlayerJump : MonoBehaviour
 {
     [SerializeField] private float jumpHeight = 8;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask ground;
+
+    private Rigidbody _rb;
     
     private bool _jumpInput;
     private bool _isGrounded;
     private bool _jumpInputReleased;
+
+    private void Start()
+    {
+        _rb = GetComponent<Rigidbody>();
+    }
+
     private void Update()
     {
         _jumpInput = Input.GetButtonDown("Jump");
@@ -26,16 +34,16 @@ public class PlayerJump : PlayerMovement
     {
         if (_jumpInput && _isGrounded)
         {
-            rb.velocity = new Vector3(rb.velocity.x, jumpHeight, rb.velocity.z);
+            _rb.velocity = new Vector3(_rb.velocity.x, jumpHeight, _rb.velocity.z);
             _isGrounded = false;
         }
     }
     
     private void JumpReleased()
     {
-        if (_jumpInputReleased && rb.velocity.y > 0)
+        if (_jumpInputReleased && _rb.velocity.y > 0)
         {
-            rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+            _rb.velocity = new Vector3(_rb.velocity.x, 0, _rb.velocity.z);
         }
     }
 
