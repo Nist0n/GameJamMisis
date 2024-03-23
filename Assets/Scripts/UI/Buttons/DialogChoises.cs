@@ -8,10 +8,12 @@ public class DialogChoises : MonoBehaviour
 {
     [SerializeField] private GameObject _gameObject;
     [SerializeField] private Canvas _canvas;
+    private DialogManager _dm;
     private PlayerMovement _player;
 
     public void HideChoise()
     {
+        _dm._dt._isFirst = false;
         _gameObject.gameObject.SetActive(false);
         _canvas.gameObject.SetActive(true);
         _player.transform.position = new Vector3(-9f, 0f, 15f);
@@ -19,12 +21,14 @@ public class DialogChoises : MonoBehaviour
 
     private void Start()
     {
+        _dm = GetComponentInParent<DialogManager>();
         _canvas.gameObject.SetActive(false);
         _player = FindObjectOfType<PlayerMovement>();
     }
 
     public void AnswerNo()
     {
+        _dm._dt._isFirst = true;
         _gameObject.gameObject.SetActive(false);
         _player.enabled = true;
     }

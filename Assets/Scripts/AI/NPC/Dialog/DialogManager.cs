@@ -11,7 +11,7 @@ public class DialogManager : MonoBehaviour
     public Animator DialogBorderAnim;
     
     private Queue<string> _sentences = new Queue<string>();
-    private DialogTrigger _dt;
+    public DialogTrigger _dt;
     private PlayerMovement _player;
     private bool _senteceIsOver;
     [SerializeField] private GameObject _choice;
