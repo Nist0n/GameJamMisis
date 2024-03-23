@@ -55,8 +55,8 @@ public class DialogManager : MonoBehaviour
         
         if (_sentences.Count == 0)
         {
-            DisplayChoises();
             EndDialog();
+            DisplayChoises();
             return;
         }
 
@@ -89,6 +89,7 @@ public class DialogManager : MonoBehaviour
         {
             choise.SetActive(true);
             _choice.SetActive(true);
+            _player.enabled = false;
         }
     }
 }
