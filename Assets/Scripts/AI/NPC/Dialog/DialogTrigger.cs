@@ -10,6 +10,7 @@ public class DialogTrigger : MonoBehaviour
     private Dialog _dialog;
     private GameObject _player;
     public float Distance;
+    public bool IsActive = false;
 
     private void Awake()
     {
@@ -26,13 +27,23 @@ public class DialogTrigger : MonoBehaviour
             _dialog.gameObject.GetComponent<Animator>().SetBool(Animator.StringToHash("LightDialog"), true);
         }
 
+        if (IsActive)
+        {
+            Vector3 movement = new Vector3(_player.transform.position.x, 0f, _player.transform.position.z);
+            movement.Normalize();
+                    
+            Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, 20 * Time.deltaTime);
+        }
+
         foreach (var dialog in _dialogs)
         {
             if (Vector3.Distance(dialog.gameObject.transform.position, _player.transform.position) < Distance)
             {
-                if (Input.GetKeyDown(KeyCode.X))
+                if (Input.GetKeyDown(KeyCode.X) && !IsActive)
                 {
                     _dialogManager.StartDialog(dialog);
+                    IsActive = true;
                 }
                 else
                 {

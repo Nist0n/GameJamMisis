@@ -10,10 +10,14 @@ public class DialogManager : MonoBehaviour
     public Text DialogText;
     public Animator DialogBorderAnim;
     private Queue<string> _sentences = new Queue<string>();
+    private DialogTrigger _dt;
+    private PlayerMovement _player;
 
     private void Start()
     {
+        _dt = GetComponentInParent<DialogTrigger>();
         DialogBorderAnim = GetComponent<Animator>();
+        _player = FindObjectOfType<PlayerMovement>();
     }
 
     private void Update()
@@ -26,6 +30,8 @@ public class DialogManager : MonoBehaviour
 
     public void StartDialog(Dialog dialog)
     {
+        _player.enabled = false;
+        
         DialogBorderAnim.SetBool(Animator.StringToHash("Start"), true);
         
         _sentences.Clear();
@@ -63,6 +69,8 @@ public class DialogManager : MonoBehaviour
 
     private void EndDialog()
     {
+        _player.enabled = true;
         DialogBorderAnim.SetBool(Animator.StringToHash("Start"), false);
+        _dt.IsActive = false;
     }
 }
