@@ -16,7 +16,7 @@ public class ButtonMinigame : MonoBehaviour
 
     public void CheckPos()
     {
-        if (Focus.position.y >= 490f && Focus.position.y <= 770f)
+        if (Focus.position.y >= 550f && Focus.position.y <= 700f)
         {
             _animator.SetTrigger("success");
         }

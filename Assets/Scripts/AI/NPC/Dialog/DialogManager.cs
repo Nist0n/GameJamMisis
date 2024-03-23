@@ -9,9 +9,13 @@ public class DialogManager : MonoBehaviour
 {
     public Text DialogText;
     public Animator DialogBorderAnim;
+    
     private Queue<string> _sentences = new Queue<string>();
     private DialogTrigger _dt;
     private PlayerMovement _player;
+    private bool _senteceIsOver;
+    [SerializeField] private GameObject _choice;
+    [SerializeField] private GameObject[] _choices;
 
     private void Start()
     {
@@ -22,7 +26,7 @@ public class DialogManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && _senteceIsOver == true)
         {
             DisplayNextSentence();
         }
@@ -31,7 +35,7 @@ public class DialogManager : MonoBehaviour
     public void StartDialog(Dialog dialog)
     {
         _player.enabled = false;
-        
+
         DialogBorderAnim.SetBool(Animator.StringToHash("Start"), true);
         
         _sentences.Clear();
@@ -47,8 +51,11 @@ public class DialogManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
+        _senteceIsOver = false;
+        
         if (_sentences.Count == 0)
         {
+            DisplayChoises();
             EndDialog();
             return;
         }
@@ -65,6 +72,8 @@ public class DialogManager : MonoBehaviour
             DialogText.text += letter;
             yield return new WaitForSeconds(0.1f);
         }
+        
+        _senteceIsOver = true;
     }
 
     private void EndDialog()
@@ -72,5 +81,14 @@ public class DialogManager : MonoBehaviour
         _player.enabled = true;
         DialogBorderAnim.SetBool(Animator.StringToHash("Start"), false);
         _dt.IsActive = false;
+    }
+
+    private void DisplayChoises()
+    {
+        foreach (var choise in _choices)
+        {
+            choise.SetActive(true);
+            _choice.SetActive(true);
+        }
     }
 }
