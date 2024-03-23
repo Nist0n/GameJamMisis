@@ -83,7 +83,7 @@ public class DialogManager : MonoBehaviour
 
     private void EndDialog()
     {
-        _player.enabled = true;
+        _player.GetComponent<PlayerMovement>().enabled = true;
         DialogBorderAnim.SetBool(Animator.StringToHash("Start"), false);
         _dt.IsActive = false;
         _scoreBoard.SetBool("isActived", true);
@@ -95,7 +95,7 @@ public class DialogManager : MonoBehaviour
         {
             choise.SetActive(true);
             _choice.SetActive(true);
-            _player.enabled = false;
+            _player.GetComponent<PlayerMovement>().enabled = false;
         }
     }
 }

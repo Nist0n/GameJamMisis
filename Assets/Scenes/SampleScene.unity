@@ -1487,55 +1487,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1152488279}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &2075082052
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2075082054}
-  - component: {fileID: 2075082053}
-  m_Layer: 0
-  m_Name: w
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2075082053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2075082052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bd0a86ccf0e61146b1351e77966ea3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Tile1: {fileID: 8957304962413023527, guid: 3f9b178ccd3b86f4ebbfc1f5a2815e56, type: 3}
-  Tile2: {fileID: 1279437348525479949, guid: e2e682b966e3f644392ffbfab511e0e2, type: 3}
-  StartTile: {fileID: 1686021177304871604, guid: ebee340de387f334f9ac44e044abd8fb, type: 3}
-  Map: {fileID: 1152488278}
-  Index: 0
---- !u!4 &2075082054
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2075082052}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 47.43, y: -0.99, z: -41.00314}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2086413105 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 651615080956162553, guid: 1f100098bdda5eb44850ef405daadde4, type: 3}
@@ -1573,8 +1524,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _textHapiness: {fileID: 1844367626}
   _textLearning: {fileID: 11663480}
-  _hapinessScore: 10
-  _learningScore: 10
+  _hapinessScore: 0
+  _learningScore: 0
 --- !u!4 &543450652796912056 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5442857520690270345, guid: 1f100098bdda5eb44850ef405daadde4, type: 3}
@@ -2166,4 +2117,3 @@ SceneRoots:
   - {fileID: 1152488279}
   - {fileID: 6944610076366003119}
   - {fileID: 8288748016281407128}
-  - {fileID: 2075082054}

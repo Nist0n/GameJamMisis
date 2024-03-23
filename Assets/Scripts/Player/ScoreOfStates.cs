@@ -8,12 +8,12 @@ public class ScoreOfStates : MonoBehaviour
 {
     [SerializeField] private Text _textHapiness;
     [SerializeField] private Text _textLearning;
-    public int _hapinessScore = 1;
-    public int _learningScore = 1;
-
+    public int _hapinessScore;
+    public int _learningScore;
+    
     private void Update()
     {
-        _textHapiness.text = $"{_hapinessScore}";
-        _textLearning.text = $"{_learningScore}";
+        _textHapiness.text = $"{PlayerPrefs.GetInt("hapinessScore")}";
+        _textLearning.text = $"{PlayerPrefs.GetInt("learningScore")}";
     }
 }

@@ -49,7 +49,7 @@ public class ButtonMinigame : MonoBehaviour
                     _animator.gameObject.transform);
                 Instantiate(_paper, _player.transform.position, Quaternion.identity);
                 _attempts++;
-                _player._hapinessScore += 1;
+                PlayerPrefs.SetInt("hapinessScore", PlayerPrefs.GetInt("hapinessScore") + 1);
             }
         }
         else
