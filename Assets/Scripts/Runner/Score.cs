@@ -9,13 +9,7 @@ public class Score : MonoBehaviour
 {
     private int ScoreInt;
     public Text ScoreText;
-    private ScoreOfStates _score;
-
-    private void Start()
-    {
-        _score = GameObject.FindGameObjectWithTag("Player").GetComponent<ScoreOfStates>();
-    }
-
+    
     public void ScorePlusOne()
     {
         ScoreInt++;

@@ -11,7 +11,6 @@ public class DialogTrigger : MonoBehaviour
     private GameObject _player;
     public float Distance;
     public bool IsActive = false;
-    public bool _isFirst = true;
 
     private void Awake()
     {
@@ -23,7 +22,7 @@ public class DialogTrigger : MonoBehaviour
 
     private void Update()
     {
-        if ((_dialog.gameObject.transform.position.x - _player.transform.position.x) < Distance && _isFirst == true)
+        if ((_dialog.gameObject.transform.position.x - _player.transform.position.x) < Distance && PlayerPrefs.GetInt("dtIsFirst") == 1)
         {
             _dialog.gameObject.GetComponent<Animator>().SetBool(Animator.StringToHash("LightDialog"), true);
         }
@@ -41,7 +40,7 @@ public class DialogTrigger : MonoBehaviour
         {
             if (Vector3.Distance(dialog.gameObject.transform.position, _player.transform.position) < Distance)
             {
-                if (Input.GetKeyDown(KeyCode.X) && !IsActive && _isFirst)
+                if (Input.GetKeyDown(KeyCode.X) && !IsActive && PlayerPrefs.GetInt("dtIsFirst") == 1)
                 {
                     _dialogManager.StartDialog(dialog);
                     IsActive = true;

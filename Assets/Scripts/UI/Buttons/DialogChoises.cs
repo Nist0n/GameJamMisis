@@ -15,7 +15,7 @@ public class DialogChoises : MonoBehaviour
 
     public void HideChoise()
     {
-        _dm._dt._isFirst = false;
+        PlayerPrefs.SetInt("dtIsFirst", 0);
         _gameObject.gameObject.SetActive(false);
         _canvas.gameObject.SetActive(true);
         _player.transform.position = new Vector3(-9f, 0f, 15f);
@@ -31,7 +31,6 @@ public class DialogChoises : MonoBehaviour
 
     public void AnswerNo()
     {
-        _dm._dt._isFirst = true;
         _gameObject.gameObject.SetActive(false);
         _player.enabled = true;
     }

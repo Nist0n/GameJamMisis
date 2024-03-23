@@ -8,6 +8,7 @@ public class ScoreOfStates : MonoBehaviour
 {
     [SerializeField] private Text _textHapiness;
     [SerializeField] private Text _textLearning;
+    
     public int _hapinessScore;
     public int _learningScore;
     
