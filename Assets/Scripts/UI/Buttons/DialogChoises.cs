@@ -8,6 +8,8 @@ public class DialogChoises : MonoBehaviour
 {
     [SerializeField] private GameObject _gameObject;
     [SerializeField] private Canvas _canvas;
+    [SerializeField] private Image _image;
+    
     private DialogManager _dm;
     private PlayerMovement _player;
 
@@ -17,6 +19,7 @@ public class DialogChoises : MonoBehaviour
         _gameObject.gameObject.SetActive(false);
         _canvas.gameObject.SetActive(true);
         _player.transform.position = new Vector3(-9f, 0f, 15f);
+        _image.gameObject.SetActive(false);
     }
 
     private void Start()

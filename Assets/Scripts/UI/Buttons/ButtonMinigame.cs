@@ -8,7 +8,7 @@ public class ButtonMinigame : MonoBehaviour
 {
     public RectTransform Focus;
     private Animator _animator;
-    private PlayerMovement _player;
+    private ScoreOfStates _player;
     [SerializeField] private GameObject _paper;
     [SerializeField] private Image[] _frames;
     [SerializeField] private Image _fail;
@@ -19,7 +19,7 @@ public class ButtonMinigame : MonoBehaviour
     private void Start()
     {
         _animator = GetComponentInParent<Animator>();
-        _player = FindObjectOfType<PlayerMovement>();
+        _player = FindObjectOfType<ScoreOfStates>();
     }
 
     private void Update()
@@ -34,7 +34,7 @@ public class ButtonMinigame : MonoBehaviour
     {
         yield return new WaitForSeconds(4f);
         _animator.gameObject.SetActive(false);
-        _player.enabled = true;
+        _player.GetComponent<PlayerMovement>().enabled = true;
         _attempts = 0;
         _isFirst = false;
     }
@@ -47,9 +47,9 @@ public class ButtonMinigame : MonoBehaviour
             {
                 Instantiate(_success, _frames[_attempts].transform.position, Quaternion.identity,
                     _animator.gameObject.transform);
-                _animator.SetTrigger("success");
                 Instantiate(_paper, _player.transform.position, Quaternion.identity);
                 _attempts++;
+                _player._hapinessScore += 1;
             }
         }
         else
@@ -58,7 +58,6 @@ public class ButtonMinigame : MonoBehaviour
             {
                 Instantiate(_fail, _frames[_attempts].transform.position, Quaternion.identity,
                     _animator.gameObject.transform);
-                _animator.SetTrigger("failure");
                 Vector3 pos = new Vector3(_player.transform.position.x, _player.transform.position.y + 4f,
                     _player.transform.position.z + 2f);
                 _player.GetComponent<ThrowPaper>().ThrowPapers(pos);

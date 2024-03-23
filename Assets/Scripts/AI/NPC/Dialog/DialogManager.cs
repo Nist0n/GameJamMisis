@@ -7,21 +7,24 @@ using UnityEngine.UI;
 
 public class DialogManager : MonoBehaviour
 {
-    public Text DialogText;
-    public Animator DialogBorderAnim;
-    
-    private Queue<string> _sentences = new Queue<string>();
-    public DialogTrigger _dt;
-    private PlayerMovement _player;
-    private bool _senteceIsOver;
     [SerializeField] private GameObject _choice;
     [SerializeField] private GameObject[] _choices;
+    [SerializeField] private Animator _scoreBoard;
+
+    public Text DialogText;
+    public Animator DialogBorderAnim;
+    public DialogTrigger _dt;
+    
+    private Queue<string> _sentences = new Queue<string>();
+    private ScoreOfStates _player;
+    
+    private bool _senteceIsOver;
 
     private void Start()
     {
         _dt = GetComponentInParent<DialogTrigger>();
         DialogBorderAnim = GetComponent<Animator>();
-        _player = FindObjectOfType<PlayerMovement>();
+        _player = FindObjectOfType<ScoreOfStates>();
     }
 
     private void Update()
@@ -34,7 +37,9 @@ public class DialogManager : MonoBehaviour
 
     public void StartDialog(Dialog dialog)
     {
-        _player.enabled = false;
+        _scoreBoard.SetBool("isActived", false);
+        
+        _player.GetComponent<PlayerMovement>().enabled = false;
 
         DialogBorderAnim.SetBool(Animator.StringToHash("Start"), true);
         
@@ -81,6 +86,7 @@ public class DialogManager : MonoBehaviour
         _player.enabled = true;
         DialogBorderAnim.SetBool(Animator.StringToHash("Start"), false);
         _dt.IsActive = false;
+        _scoreBoard.SetBool("isActived", true);
     }
 
     private void DisplayChoises()
