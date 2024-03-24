@@ -9,6 +9,7 @@ public class DialogChoises : MonoBehaviour
 {
     [SerializeField] private GameObject _gameObject;
     [SerializeField] private Canvas _canvas;
+    [SerializeField] private Canvas scoreBoard;
     [SerializeField] private Image _image;
 
     private DialogManager _dm;
@@ -19,6 +20,7 @@ public class DialogChoises : MonoBehaviour
         _gameObject.gameObject.SetActive(false);
         _canvas.gameObject.SetActive(true);
         _player.transform.position = new Vector3(-9f, 0f, 15f);
+        scoreBoard.gameObject.SetActive(false);
         Destroy(_image.gameObject);
     }
 
@@ -34,9 +36,14 @@ public class DialogChoises : MonoBehaviour
         _gameObject.gameObject.SetActive(false);
         _player.enabled = true;
     }
-
+    
     public void AnswerYes()
     {
         SceneManager.LoadScene("Main");
+    }
+
+    public void Understand()
+    {
+        SceneManager.LoadScene("SampleScene 1");
     }
 }

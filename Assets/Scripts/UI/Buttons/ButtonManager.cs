@@ -10,6 +10,11 @@ public class ButtonManager : MonoBehaviour
         SceneManager.LoadScene("House");
     }
 
+    public void Exitmenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
     public void ExitTheHouse()
     {
         SceneManager.LoadScene("SampleScene");

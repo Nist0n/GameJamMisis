@@ -12,6 +12,7 @@ public class ButtonMinigame : MonoBehaviour
     private ScoreOfStates _player;
     [SerializeField] private GameObject _paper;
     [SerializeField] private Image[] _frames;
+    [SerializeField] private Canvas canvas;
     [SerializeField] private Image _fail;
     [SerializeField] private Image _success;
     private int _attempts = 0;
@@ -38,7 +39,8 @@ public class ButtonMinigame : MonoBehaviour
         _player.GetComponent<PlayerMovement>().enabled = true;
         _attempts = 0;
         _isFirst = false;
-        PlayerPrefs.SetInt("cloak", 24);
+        canvas.gameObject.SetActive(true);
+        PlayerPrefs.SetInt("cloak", PlayerPrefs.GetInt("cloak") + 8);
         SceneManager.LoadScene("University");
     }
 
