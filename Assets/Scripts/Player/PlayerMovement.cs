@@ -22,9 +22,9 @@ public class PlayerMovement : MonoBehaviour
         _vector3.x = Input.GetAxis("Horizontal");
         _vector3.z = Input.GetAxis("Vertical");
 
-        _rb.MovePosition(_rb.position + _vector3 * _speed * Time.deltaTime);
+        _rb.MovePosition(_rb.position - _vector3 * _speed * Time.deltaTime);
         
-        Vector3 movement = new Vector3(_vector3.x, 0, _vector3.z);
+        Vector3 movement = new Vector3(-_vector3.x, 0, -_vector3.z);
         movement.Normalize();
 
         if (movement != Vector3.zero)

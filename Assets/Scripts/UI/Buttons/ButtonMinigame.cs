@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ButtonMinigame : MonoBehaviour
@@ -37,6 +38,8 @@ public class ButtonMinigame : MonoBehaviour
         _player.GetComponent<PlayerMovement>().enabled = true;
         _attempts = 0;
         _isFirst = false;
+        PlayerPrefs.SetInt("cloak", 24);
+        SceneManager.LoadScene("University");
     }
 
     public void CheckPos()

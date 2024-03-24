@@ -14,7 +14,7 @@ public class DialogTrigger : MonoBehaviour
 
     private void Awake()
     {
-        _dialogManager = FindObjectOfType<DialogManager>();
+        _dialogManager = GetComponentInChildren<DialogManager>();
         _dialogs = FindObjectsOfType<Dialog>();
         _dialog = FindObjectOfType<Dialog>();
         _player = GameObject.FindWithTag("Player");
@@ -22,9 +22,32 @@ public class DialogTrigger : MonoBehaviour
 
     private void Update()
     {
-        if ((_dialog.gameObject.transform.position.x - _player.transform.position.x) < Distance && PlayerPrefs.GetInt("dtIsFirst") == 1)
+        Dialog dialogObject = null;
+        float tempDistance = Distance;
+        foreach (var dialog in _dialogs)
         {
-            _dialog.gameObject.GetComponent<Animator>().SetBool(Animator.StringToHash("LightDialog"), true);
+            var distanceObject = Vector3.Distance(dialog.gameObject.transform.position, _player.transform.position);
+            if (distanceObject < Distance)
+            {
+                if (distanceObject < tempDistance)
+                {
+                    tempDistance = distanceObject;
+                    dialogObject = dialog;
+                }
+            }
+        }
+        
+        if (dialogObject != null)
+        {
+            if (Input.GetKeyDown(KeyCode.X) && !IsActive && PlayerPrefs.GetInt("dtIsFirst") == 1)
+            {
+                _dialogManager.StartDialog(dialogObject);
+                IsActive = true;
+            }
+            else
+            {
+                dialogObject.gameObject.GetComponent<Animator>().SetBool(Animator.StringToHash("LightDialog"), true);
+            }
         }
 
         if (IsActive)
@@ -33,22 +56,14 @@ public class DialogTrigger : MonoBehaviour
             movement.Normalize();
                     
             Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, 20 * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, 80 * Time.deltaTime);
         }
 
         foreach (var dialog in _dialogs)
         {
-            if (Vector3.Distance(dialog.gameObject.transform.position, _player.transform.position) < Distance)
+            if (dialog != dialogObject && PlayerPrefs.GetInt("dtIsFirst") == 1)
             {
-                if (Input.GetKeyDown(KeyCode.X) && !IsActive && PlayerPrefs.GetInt("dtIsFirst") == 1)
-                {
-                    _dialogManager.StartDialog(dialog);
-                    IsActive = true;
-                }
-                else
-                {
-                    dialog.gameObject.GetComponent<Animator>().SetBool(Animator.StringToHash("LightDialog"), false);
-                }
+                dialog.gameObject.GetComponent<Animator>().SetBool(Animator.StringToHash("LightDialog"), false);
             }
         }
     }

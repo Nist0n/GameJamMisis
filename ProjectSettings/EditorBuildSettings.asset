@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: a4ce1558f1e782f42b27a483aec94e9c
+  - enabled: 1
+    path: Assets/Scenes/House.unity
+    guid: f8c1fa5ffa302374f90dbce037f67c67
+  - enabled: 1
+    path: Assets/Scenes/University.unity
+    guid: e851ba263e88e7f4aa334b6e791c864c
+  - enabled: 1
+    path: Assets/Scenes/University 1.unity
+    guid: dae116b120b1ef84dba4573ebc23479d
   m_configObjects: {}

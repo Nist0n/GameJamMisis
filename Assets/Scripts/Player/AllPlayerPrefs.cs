@@ -9,5 +9,6 @@ public class AllPlayerPrefs : MonoBehaviour
         PlayerPrefs.SetInt("dtIsFirst", 1);
         PlayerPrefs.SetInt("hapinessScore", 1);
         PlayerPrefs.SetInt("learningScore", 1);
+        PlayerPrefs.SetInt("cloak", 8);
     }
 }

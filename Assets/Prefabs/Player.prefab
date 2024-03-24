@@ -780,7 +780,6 @@ GameObject:
   - component: {fileID: 8238286072953365826}
   - component: {fileID: 6892867638404391109}
   - component: {fileID: 1065460388335904506}
-  - component: {fileID: 2135542817681970329}
   - component: {fileID: 1056963521784845472}
   - component: {fileID: 1362209871974064816}
   m_Layer: 0
@@ -848,23 +847,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51a842a85c1808e4fade92224ea1689e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2135542817681970329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7145111641892440361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f880d91099aba79429f0d737a832e37f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpHeight: 8
-  groundCheck: {fileID: 7506068016034453568}
-  ground:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!136 &1056963521784845472
 CapsuleCollider:
   m_ObjectHideFlags: 0

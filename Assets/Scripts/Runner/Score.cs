@@ -21,7 +21,7 @@ public class Score : MonoBehaviour
         if (ScoreInt == 1)
         {
             PlayerPrefs.SetInt("hapinessScore", PlayerPrefs.GetInt("hapinessScore") + 2);
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene("University 1");
         }
     }
 }

@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - frames
+  - Obstacle
+  - ScoreText
+  - Bahilovich
+  - VICTORcharecters
   layers:
   - Default
   - TransparentFX

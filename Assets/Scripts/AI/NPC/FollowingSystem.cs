@@ -16,5 +16,13 @@ public class FollowingSystem : MonoBehaviour
         Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
             transform.rotation =
                 Quaternion.RotateTowards(transform.rotation, toRotation, 400 * Time.deltaTime);
+        if (PlayerPrefs.GetInt("dtIsFirst") == 0)
+        {
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            gameObject.SetActive(true);
+        }
     }
 }

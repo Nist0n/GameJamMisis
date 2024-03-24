@@ -7,8 +7,6 @@ using UnityEngine.UI;
 
 public class DialogManager : MonoBehaviour
 {
-    [SerializeField] private GameObject _choice;
-    [SerializeField] private GameObject[] _choices;
     [SerializeField] private Animator _scoreBoard;
 
     public Text DialogText;
@@ -17,8 +15,10 @@ public class DialogManager : MonoBehaviour
     
     private Queue<string> _sentences = new Queue<string>();
     private ScoreOfStates _player;
-    
+
     private bool _senteceIsOver;
+
+    public bool DialogIsOver = false;
 
     private void Start()
     {
@@ -54,14 +54,14 @@ public class DialogManager : MonoBehaviour
         DisplayNextSentence();
     }
 
-    public void DisplayNextSentence()
+    private void DisplayNextSentence()
     {
         _senteceIsOver = false;
         
         if (_sentences.Count == 0)
         {
             EndDialog();
-            DisplayChoises();
+            DialogIsOver = true;
             return;
         }
 
@@ -87,15 +87,5 @@ public class DialogManager : MonoBehaviour
         DialogBorderAnim.SetBool(Animator.StringToHash("Start"), false);
         _dt.IsActive = false;
         _scoreBoard.SetBool("isActived", true);
-    }
-
-    private void DisplayChoises()
-    {
-        foreach (var choise in _choices)
-        {
-            choise.SetActive(true);
-            _choice.SetActive(true);
-            _player.GetComponent<PlayerMovement>().enabled = false;
-        }
     }
 }
