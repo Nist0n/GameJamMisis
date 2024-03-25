@@ -1428,7 +1428,7 @@ GameObject:
   - component: {fileID: 916500791}
   - component: {fileID: 916500790}
   m_Layer: 5
-  m_Name: Time
+  m_Name: Time (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1487,7 +1487,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 4015629462d898d4ab61b303afdaa00e, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
@@ -1938,11 +1938,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5628106842724790385, guid: e681354a22a7e3c48846f12398f8f733, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000016471196
+      value: -0.000000016471194
       objectReference: {fileID: 0}
     - target: {fileID: 5628106842724790385, guid: e681354a22a7e3c48846f12398f8f733, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000049758717
+      value: 0.0000000049758713
       objectReference: {fileID: 0}
     - target: {fileID: 5963397302764336244, guid: e681354a22a7e3c48846f12398f8f733, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1966,11 +1966,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5963397302764336244, guid: e681354a22a7e3c48846f12398f8f733, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000016471196
+      value: -0.000000016471194
       objectReference: {fileID: 0}
     - target: {fileID: 5963397302764336244, guid: e681354a22a7e3c48846f12398f8f733, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000049758717
+      value: 0.0000000049758713
       objectReference: {fileID: 0}
     - target: {fileID: 6282562418409375380, guid: e681354a22a7e3c48846f12398f8f733, type: 3}
       propertyPath: m_FollowOffset.y
