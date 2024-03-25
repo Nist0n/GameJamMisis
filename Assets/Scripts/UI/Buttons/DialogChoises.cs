@@ -11,12 +11,14 @@ public class DialogChoises : MonoBehaviour
     [SerializeField] private Canvas _canvas;
     [SerializeField] private Canvas scoreBoard;
     [SerializeField] private Image _image;
+    private Music _music;
 
     private DialogManager _dm;
     private PlayerMovement _player;
 
     public void HideChoise()
     {
+        PlayerPrefs.SetInt("currentLoc", PlayerPrefs.GetInt("currentLoc") + 1);
         _gameObject.gameObject.SetActive(false);
         _canvas.gameObject.SetActive(true);
         _player.transform.position = new Vector3(-9f, 0f, 15f);
@@ -29,6 +31,7 @@ public class DialogChoises : MonoBehaviour
         _dm = GetComponentInParent<DialogManager>();
         _canvas.gameObject.SetActive(false);
         _player = FindObjectOfType<PlayerMovement>();
+        _music = FindObjectOfType<Music>();
     }
 
     public void AnswerNo()
@@ -39,11 +42,14 @@ public class DialogChoises : MonoBehaviour
     
     public void AnswerYes()
     {
+        Destroy(_music.gameObject);
+        PlayerPrefs.SetInt("currentLoc", PlayerPrefs.GetInt("currentLoc") + 1);
         SceneManager.LoadScene("Main");
     }
 
     public void Understand()
     {
         SceneManager.LoadScene("SampleScene 1");
+        PlayerPrefs.SetInt("currentLoc", PlayerPrefs.GetInt("currentLoc") + 1);
     }
 }

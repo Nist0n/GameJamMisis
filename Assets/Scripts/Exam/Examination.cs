@@ -17,6 +17,8 @@ public class Examination : MonoBehaviour
     [SerializeField] private Image badEnd2;
     [SerializeField] private Image restart;
     [SerializeField] private Canvas canvas;
+    [SerializeField] private AudioSource correctAudio;
+    [SerializeField] private AudioSource inCorrectAudio;
 
     private int _attempts = 0;
     private int _correctAnswer = 0;
@@ -73,6 +75,7 @@ public class Examination : MonoBehaviour
                 Debug.Log("rolling" + $"{rand}");
                 if (rand >= 6)
                 {
+                    correctAudio.PlayOneShot(correctAudio.clip);
                     Instantiate(success, frames[_attempts].transform.position, Quaternion.identity,
                         canvas.gameObject.transform);
                     _attempts++;
@@ -80,6 +83,7 @@ public class Examination : MonoBehaviour
                 }
                 else
                 {
+                    inCorrectAudio.PlayOneShot(inCorrectAudio.clip);
                     Instantiate(fail, frames[_attempts].transform.position, Quaternion.identity,
                         canvas.gameObject.transform);
                     _attempts++;
@@ -95,6 +99,7 @@ public class Examination : MonoBehaviour
                 diceAnim.SetTrigger("rolling" + $"{rand}");
                 if (rand >= 5)
                 {
+                    correctAudio.PlayOneShot(correctAudio.clip);
                     Instantiate(success, frames[_attempts].transform.position, Quaternion.identity,
                         canvas.gameObject.transform);
                     _attempts++;
@@ -102,6 +107,7 @@ public class Examination : MonoBehaviour
                 }
                 else
                 {
+                    inCorrectAudio.PlayOneShot(inCorrectAudio.clip);
                     Instantiate(fail, frames[_attempts].transform.position, Quaternion.identity,
                         canvas.gameObject.transform);
                     _attempts++;
@@ -117,6 +123,7 @@ public class Examination : MonoBehaviour
                 diceAnim.SetTrigger("rolling" + $"{rand}");
                 if (rand >= 4)
                 {
+                    correctAudio.PlayOneShot(correctAudio.clip);
                     Instantiate(success, frames[_attempts].transform.position, Quaternion.identity,
                         canvas.gameObject.transform);
                     _attempts++;
@@ -124,6 +131,7 @@ public class Examination : MonoBehaviour
                 }
                 else
                 {
+                    inCorrectAudio.PlayOneShot(inCorrectAudio.clip);
                     Instantiate(fail, frames[_attempts].transform.position, Quaternion.identity,
                         canvas.gameObject.transform);
                     _attempts++;
@@ -139,6 +147,7 @@ public class Examination : MonoBehaviour
                 diceAnim.SetTrigger("rolling" + $"{rand}");
                 if (rand >= 3)
                 {
+                    correctAudio.PlayOneShot(correctAudio.clip);
                     Instantiate(success, frames[_attempts].transform.position, Quaternion.identity,
                         canvas.gameObject.transform);
                     _attempts++;
@@ -146,6 +155,7 @@ public class Examination : MonoBehaviour
                 }
                 else
                 {
+                    inCorrectAudio.PlayOneShot(inCorrectAudio.clip);
                     Instantiate(fail, frames[_attempts].transform.position, Quaternion.identity,
                         canvas.gameObject.transform);
                     _attempts++;

@@ -9,6 +9,7 @@ TagManager:
   - ScoreText
   - Bahilovich
   - VICTORcharecters
+  - Sound
   layers:
   - Default
   - TransparentFX

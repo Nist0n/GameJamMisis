@@ -40,6 +40,7 @@ public class DialogFix : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.X) && !IsActive && PlayerPrefs.GetInt("dtIsFirst") == 1)
             {
+                _player.gameObject.GetComponent<Animator>().SetBool("isRunning", false);
                 _dialogManager.StartDialog(dialogObject);
                 IsActive = true;
             }

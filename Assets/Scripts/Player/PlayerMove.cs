@@ -7,6 +7,7 @@ public class PlayerMove : MonoBehaviour
     private Animator _anim;
     private Rigidbody _rb;
     private Vector3 _vector3;
+    private AudioSource _audio;
     private float _speed = 8;
     private float _rotationSpeed = 500;
 
@@ -14,6 +15,7 @@ public class PlayerMove : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         _anim = GetComponent<Animator>();
+        _audio = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -47,5 +49,10 @@ public class PlayerMove : MonoBehaviour
         {
             _anim.SetBool("isRunning", true);
         }
+    }
+    
+    public void AudioGo()
+    {
+        _audio.PlayOneShot(_audio.clip);
     }
 }

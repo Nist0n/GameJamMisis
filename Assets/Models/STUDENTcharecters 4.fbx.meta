@@ -3,7 +3,37 @@ guid: ac987395b4e5bf34b8a360e2b2921b04
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: KEPKA
+    second: {fileID: 2100000, guid: 91b7a0bdd22dff744a6ecb72661ebe98, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eyes1 and shirt2
+    second: {fileID: 2100000, guid: 1bc346366fbb24f4db3605edc9622774, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eyes2
+    second: {fileID: 2100000, guid: b4a8c94667983b74494a40cc0377e05d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eyes3
+    second: {fileID: 2100000, guid: c21804ee920e42a4692cb7e7ad853d7c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: head
+    second: {fileID: 2100000, guid: 720bc5a629f5baf409473e48ba1af66a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shirt1 and collar
+    second: {fileID: 2100000, guid: dc057528495f9bf4aa90b6bb57c4b3ec, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

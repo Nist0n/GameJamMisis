@@ -17,12 +17,14 @@ public class ButtonManager : MonoBehaviour
 
     public void ExitTheHouse()
     {
-        SceneManager.LoadScene("SampleScene");
+        if (PlayerPrefs.GetInt("currentLoc") == 0) SceneManager.LoadScene("SampleScene");
+        if (PlayerPrefs.GetInt("currentLoc") == 1) SceneManager.LoadScene("SampleScene 1");
+        if (PlayerPrefs.GetInt("currentLoc") == 2) SceneManager.LoadScene("University");
+        if (PlayerPrefs.GetInt("currentLoc") == 3) SceneManager.LoadScene("University 1");
     }
 
     public void Home()
     {
-        PlayerPrefs.SetInt("dtIsFirst", 0);
         SceneManager.LoadScene("House");
     }
 
